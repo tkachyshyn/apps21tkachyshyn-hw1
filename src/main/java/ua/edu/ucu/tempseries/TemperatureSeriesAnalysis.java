@@ -36,7 +36,7 @@ public class TemperatureSeriesAnalysis {
         double av = average();
         double sum = 0;
         for(int i =0; i < len; i++){
-            sum += (av - temperatureSeries[i]) ** 2;
+            sum += Math.pow((av - temperatureSeries[i]), 2);
         }
         return Math.sqrt(sum / len);
     }

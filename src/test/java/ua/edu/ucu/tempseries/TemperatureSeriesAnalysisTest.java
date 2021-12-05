@@ -98,9 +98,9 @@ public class TemperatureSeriesAnalysisTest {
     public void testLessThen() {
         double[] temperatureSeries = {3.0, -5.0, 1.0, 5.0};
         TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(temperatureSeries);
-        double expResult = {-5.0};
+        double[] expResult = {-5.0};
 
-        double actualResult = seriesAnalysis.TempsLessThen(0.0);
+        double actualResult = seriesAnalysis.findTempsLessThen(0.0);
 
         assertEquals(expResult, actualResult, 0.00001);
     }
@@ -109,7 +109,7 @@ public class TemperatureSeriesAnalysisTest {
     public void testGreaterThen() {
         double[] temperatureSeries = {3.0, -5.0, 1.0, 5.0};
         TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(temperatureSeries);
-        double expResult = {-5.0};
+        double[] expResult = {-5.0};
 
         double actualResult = seriesAnalysis.findTempsGreaterThen(4.0);
 

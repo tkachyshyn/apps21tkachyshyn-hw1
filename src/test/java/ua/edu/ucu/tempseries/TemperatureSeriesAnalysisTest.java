@@ -102,7 +102,7 @@ public class TemperatureSeriesAnalysisTest {
 
         double[] actualResult = seriesAnalysis.findTempsLessThen(0.0);
 
-        assertEquals(expResult, actualResult, 0.00001);
+        assertEquals(expResult, actualResult);
     }
 
     @Test
@@ -113,7 +113,7 @@ public class TemperatureSeriesAnalysisTest {
 
         double[] actualResult = seriesAnalysis.findTempsGreaterThen(4.0);
 
-        assertEquals(expResult, actualResult, 0.00001);
+        assertEquals(expResult, actualResult);
     }
 //
 //    @Test

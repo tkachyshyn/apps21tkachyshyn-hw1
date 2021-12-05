@@ -100,7 +100,7 @@ public class TemperatureSeriesAnalysis {
         if (len == 0){
             throw new IllegalArgumentException("Empty array");
         }
-        double[] res;
+        double[] res = new double[1];
         int index = 0;
         for(int i = 0; i < len; ++i){
             if (temperatureSeries[i] < tempValue){
@@ -116,7 +116,7 @@ public class TemperatureSeriesAnalysis {
         if (len == 0){
             throw new IllegalArgumentException("Empty array");
         }
-        double[] res;
+        double[] res = new double[1];
         int index = 0;
         for(int i = 0; i < len; ++i){
             if (temperatureSeries[i] > tempValue){

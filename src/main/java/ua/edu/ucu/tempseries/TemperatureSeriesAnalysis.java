@@ -1,5 +1,6 @@
 package ua.edu.ucu.tempseries;
 import java.lang.Math;
+import java.util.Arrays;
 
 public class TemperatureSeriesAnalysis {
 //    private int final  = -273;
@@ -100,9 +101,12 @@ public class TemperatureSeriesAnalysis {
             throw new IllegalArgumentException("Empty array");
         }
         double[] res;
+        int index = 0;
         for(int i = 0; i < len; ++i){
             if (temperatureSeries[i] < tempValue){
-                res.add(temperatureSeries[i]);
+                res[index] = temperatureSeries[i];
+                index++;
+//                res.add(temperatureSeries[i]);
             }
         }
         return res;
@@ -113,9 +117,11 @@ public class TemperatureSeriesAnalysis {
             throw new IllegalArgumentException("Empty array");
         }
         double[] res;
+        int index = 0;
         for(int i = 0; i < len; ++i){
             if (temperatureSeries[i] > tempValue){
-                res.add(temperatureSeries[i]);
+                res[index] = temperatureSeries[i];
+                index++;
             }
         }
         return res;
@@ -128,7 +134,7 @@ public class TemperatureSeriesAnalysis {
         return new TempSummaryStatistics(average(), deviation(), min(), max());
     }
 
-    public int addTemps(double... temps) {
+    public double addTemps(double... temps) {
         if (len == 0){
             throw new IllegalArgumentException("Empty array");
         }
@@ -136,18 +142,10 @@ public class TemperatureSeriesAnalysis {
             if(temp <= -273.0){
                 throw new InputMismatchException();
             }
-            if(len == temperatureSeries.size()){
-                double newArray[] = new double[len * 2];
-                len *= 2;
-                System.arraycopy(temperatureSeries, 0, newArray, 0, len);
-                System.arraycopy(newArray, 0, temperatureSeries, 0, len);
-                temperatureSeries[temperatureSeries.size()] = temp;
+            if(temperatureSeries.length - len < temps.length){
+                temperatureSeries = Arrays.copyOf(temperatureSeries, temperatureSeries.length*2);
             }
         }
-        double sum = 0;
-        for(int i = 0; i < len; i++){
-            sum += temperatureSeries[i];
-        }
-        return sum;
+        return len;
     }
 }

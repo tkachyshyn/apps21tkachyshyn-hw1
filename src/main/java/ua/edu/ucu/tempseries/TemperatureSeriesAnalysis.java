@@ -51,7 +51,7 @@ public class TemperatureSeriesAnalysis {
                 res = temperatureSeries[i];
             }
         }
-        return res
+        return res;
     }
 
     public double max() {
@@ -64,7 +64,7 @@ public class TemperatureSeriesAnalysis {
                 res = temperatureSeries[i];
             }
         }
-        return res
+        return res;
     }
 
     public double findTempClosestToZero() {

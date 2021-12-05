@@ -45,14 +45,26 @@ public class TemperatureSeriesAnalysis {
         if (len == 0){
             throw new IllegalArgumentException("Empty array");
         }
-        return min(temperatureSeries);
+        double res = temperatureSeries[0];
+        for(int i = 1; i < len; i++){
+            if(res < temperatureSeries[i]){
+                res = temperatureSeries[i];
+            }
+        }
+        return res
     }
 
     public double max() {
         if (len == 0){
             throw new IllegalArgumentException("Empty array");
         }
-        return max(temperatureSeries);
+        double res = temperatureSeries[0];
+        for(int i = 1; i < len; i++){
+            if(res > temperatureSeries[i]){
+                res = temperatureSeries[i];
+            }
+        }
+        return res
     }
 
     public double findTempClosestToZero() {

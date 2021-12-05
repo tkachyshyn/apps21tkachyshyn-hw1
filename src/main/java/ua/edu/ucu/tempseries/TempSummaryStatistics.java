@@ -6,7 +6,7 @@ public class TempSummaryStatistics {
     private double minTemp;
     private double maxTemp;
 
-    public void setTemps(double average,  double dev, double min, double max){
+    public TempSummaryStatistics(double average,  double dev, double min, double max){
         avgTemp = average;
         devTemp = dev;
         minTemp = min;

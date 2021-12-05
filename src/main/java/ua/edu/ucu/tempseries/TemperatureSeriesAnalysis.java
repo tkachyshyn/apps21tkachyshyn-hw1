@@ -140,7 +140,7 @@ public class TemperatureSeriesAnalysis {
         }
         for(double temp: temps){
             if(temp <= -273.0){
-                throw new InputMismatchException("Too low temperature");
+                throw new IllegalArgumentException("Too low temperature");
             }
             if(temperatureSeries.length - len < temps.length){
                 temperatureSeries = Arrays.copyOf(temperatureSeries, temperatureSeries.length*2);

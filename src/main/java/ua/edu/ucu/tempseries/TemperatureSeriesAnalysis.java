@@ -135,11 +135,12 @@ public class TemperatureSeriesAnalysis {
     }
 
     public int addTemps(double... temps) {
+        double absMin = -273.0
         if (len == 0) {
             throw new IllegalArgumentException("Empty array");
         }
         for (double temp: temps) {
-            if (temp <= -273.0) {
+            if (temp <= absMin) {
                 throw new IllegalArgumentException("Too low temperature");
             }
             if (temperatureSeries.length - len < temps.length) {

@@ -135,7 +135,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public int addTemps(double... temps) {
-        double absMin = -273.0
+        double absMin = -273.0;
         if (len == 0) {
             throw new IllegalArgumentException("Empty array");
         }

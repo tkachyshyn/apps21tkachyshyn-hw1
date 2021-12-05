@@ -131,7 +131,7 @@ public class TemperatureSeriesAnalysis {
         if (len == 0){
             throw new IllegalArgumentException("Empty array");
         }
-        return new TempSummaryStatistics(average(), deviation(), min(), max());
+        return new setTemps(average(), deviation(), min(), max());
     }
 
     public double addTemps(double... temps) {
@@ -140,7 +140,7 @@ public class TemperatureSeriesAnalysis {
         }
         for(double temp: temps){
             if(temp <= -273.0){
-                throw new InputMismatchException();
+                throw new InputMismatchException("Too low temperature");
             }
             if(temperatureSeries.length - len < temps.length){
                 temperatureSeries = Arrays.copyOf(temperatureSeries, temperatureSeries.length*2);

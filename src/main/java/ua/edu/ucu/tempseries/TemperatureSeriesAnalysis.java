@@ -2,7 +2,7 @@ package ua.edu.ucu.tempseries;
 import java.lang.Math;
 
 public class TemperatureSeriesAnalysis {
-    private int final absoluteMin = -273;
+//    private int final  = -273;
     private double[] temperatureSeries;
     private int len;
 
@@ -60,7 +60,7 @@ public class TemperatureSeriesAnalysis {
             throw new IllegalArgumentException("Empty array");
         }
         double min_diff = Math.abs(temperatureSeries[0]);
-        for(int i = 1, i < len ; i++){
+        for(int i = 1; i < len ; i++){
             double curr = Math.abs(temperatureSeries[i]);
             if(min_diff > curr){
                 min_diff = curr;
@@ -74,7 +74,7 @@ public class TemperatureSeriesAnalysis {
             throw new IllegalArgumentException("Empty array");
         }
         double min_diff = Math.abs(tempValue - temperatureSeries[0]);
-        for(int i = 1, i < len ; i++){
+        for(int i = 1; i < len ; i++){
             double curr = Math.abs(tempValue - temperatureSeries[i]);
             if(min_diff > curr){
                 min_diff = curr;
@@ -121,7 +121,7 @@ public class TemperatureSeriesAnalysis {
             throw new IllegalArgumentException("Empty array");
         }
         for(double temp: temps){
-            if(temp <= absoluteMin){
+            if(temp <= -273.0){
                 throw new InputMismatchException();
             }
             if(len == temperatureSeries.size()){

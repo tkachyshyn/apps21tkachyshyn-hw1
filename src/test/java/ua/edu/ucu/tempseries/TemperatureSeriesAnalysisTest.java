@@ -1,4 +1,5 @@
 package ua.edu.ucu.tempseries;
+//import static org.junit.jupiter.api.Assertions.*;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
@@ -35,15 +36,15 @@ public class TemperatureSeriesAnalysisTest {
         double expResult = 1.0;
 
         double actualResult = seriesAnalysis.average();
-        
-        assertEquals(expResult, actualResult, 0.00001);        
+
+        assertEquals(expResult, actualResult, 0.00001);
     }
 
     @Test
     public void testDev() {
         double[] temperatureSeries = {3.0, -5.0, 1.0, 5.0};
         TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(temperatureSeries);
-        double expResult = 4.32049;
+        double expResult = 3.7416573867739413;
 
         double actualResult = seriesAnalysis.deviation();
 
@@ -115,15 +116,14 @@ public class TemperatureSeriesAnalysisTest {
 
         assertEquals(expResult, actualResult);
     }
-//
-//    @Test
-//    public void testAdd() {
-//        double[] temperatureSeries = {3.0, -5.0, 1.0, 5.0};
-//        TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(temperatureSeries);
-//        int expResult = 8;
-//
-//        double actualResult = seriesAnalysis.addTemps({1.0, -1.0});
-//
-//        assertEquals(expResult, actualResult, 0.00001);
-//    }
+
+    @Test
+    public void testAdd() {
+        double[] temperatureSeries = {3.0, -5.0, 1.0, 5.0};
+        TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(temperatureSeries);
+        int expResult = 4;
+        double actualResult = seriesAnalysis.addTemps();
+
+        assertEquals(expResult, actualResult, 0.00001);
+    }
 }

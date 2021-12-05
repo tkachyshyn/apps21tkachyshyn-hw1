@@ -3,7 +3,7 @@ import java.lang.Math;
 import java.util.Arrays;
 
 public class TemperatureSeriesAnalysis {
-//    private int final  = -273;
+    //    private int final  = -273;
     private double[] temperatureSeries;
     private int len;
 
@@ -13,10 +13,8 @@ public class TemperatureSeriesAnalysis {
     }
 
     public TemperatureSeriesAnalysis(double[] temperature) {
-        for(int i = 0; i < temperature.length; i++){
-            temperatureSeries[i] = temperature[i];
-            len++;
-        }
+        temperatureSeries = Arrays.copyOf(temperature, temperature.length);
+        len = temperatureSeries.length;
     }
 
     public double average() {
@@ -48,7 +46,7 @@ public class TemperatureSeriesAnalysis {
         }
         double res = temperatureSeries[0];
         for(int i = 1; i < len; i++){
-            if(res < temperatureSeries[i]){
+            if(res > temperatureSeries[i]){
                 res = temperatureSeries[i];
             }
         }
@@ -61,7 +59,7 @@ public class TemperatureSeriesAnalysis {
         }
         double res = temperatureSeries[0];
         for(int i = 1; i < len; i++){
-            if(res > temperatureSeries[i]){
+            if(res < temperatureSeries[i]){
                 res = temperatureSeries[i];
             }
         }
@@ -87,13 +85,15 @@ public class TemperatureSeriesAnalysis {
             throw new IllegalArgumentException("Empty array");
         }
         double min_diff = Math.abs(tempValue - temperatureSeries[0]);
+        double res = temperatureSeries[0];
         for(int i = 1; i < len ; i++){
             double curr = Math.abs(tempValue - temperatureSeries[i]);
             if(min_diff > curr){
                 min_diff = curr;
+                res = temperatureSeries[i];
             }
         }
-        return min_diff;
+        return res;
     }
 
     public double[] findTempsLessThen(double tempValue) {

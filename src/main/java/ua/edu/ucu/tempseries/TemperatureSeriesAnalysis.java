@@ -134,7 +134,7 @@ public class TemperatureSeriesAnalysis {
         return new TempSummaryStatistics(average(), deviation(), min(), max());
     }
 
-    public double addTemps(double... temps) {
+    public int addTemps(double... temps) {
         if (len == 0){
             throw new IllegalArgumentException("Empty array");
         }

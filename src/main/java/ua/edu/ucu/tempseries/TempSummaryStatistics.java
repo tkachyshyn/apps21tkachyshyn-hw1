@@ -6,7 +6,8 @@ public class TempSummaryStatistics {
     private double minTemp;
     private double maxTemp;
 
-    public TempSummaryStatistics(double average,  double dev, double min, double max){
+    public TempSummaryStatistics(double average,  double dev,
+                                 double min, double max) {
         avgTemp = average;
         devTemp = dev;
         minTemp = min;
@@ -31,10 +32,3 @@ public class TempSummaryStatistics {
 
 }
 
-//- TempSummaryStatistics summaryStatistics()
-//        Повертає immutable екземпляр классу TempSummaryStatistics в якому міститься інформація:
-//        - double avgTemp;
-//        - double devTemp;
-//        - double minTemp;
-//        - double maxTemp;
-//        Якщо ряд порожній, генерує IllegalArgumentException.

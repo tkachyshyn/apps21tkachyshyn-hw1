@@ -34,7 +34,7 @@ public class TemperatureSeriesAnalysis {
         }
         double av = average();
         double sum = 0;
-        for (int i =0; i < len; i++) {
+        for (int i = 0; i < len; i++) {
             sum += Math.pow((av - temperatureSeries[i]), 2);
         }
         return Math.sqrt(sum / len);
@@ -70,26 +70,26 @@ public class TemperatureSeriesAnalysis {
         if (len == 0) {
             throw new IllegalArgumentException("Empty array");
         }
-        double min_diff = Math.abs(temperatureSeries[0]);
-        for (int i = 1; i < len ; i++) {
+        double minDiff = Math.abs(temperatureSeries[0]);
+        for (int i = 1; i < len; i++) {
             double curr = Math.abs(temperatureSeries[i]);
-            if (min_diff > curr) {
-                min_diff = curr;
+            if (minDiff > curr) {
+                minDiff = curr;
             }
         }
-        return min_diff;
+        return minDiff;
     }
 
     public double findTempClosestToValue(double tempValue) {
         if (len == 0) {
             throw new IllegalArgumentException("Empty array");
         }
-        double min_diff = Math.abs(tempValue - temperatureSeries[0]);
+        double minDiff = Math.abs(tempValue - temperatureSeries[0]);
         double res = temperatureSeries[0];
-        for (int i = 1; i < len ; i++) {
+        for (int i = 1; i < len; i++) {
             double curr = Math.abs(tempValue - temperatureSeries[i]);
-            if (min_diff > curr) {
-                min_diff = curr;
+            if (minDiff > curr) {
+                minDiff = curr;
                 res = temperatureSeries[i];
             }
         }
@@ -143,7 +143,8 @@ public class TemperatureSeriesAnalysis {
                 throw new IllegalArgumentException("Too low temperature");
             }
             if (temperatureSeries.length - len < temps.length) {
-                temperatureSeries = Arrays.copyOf(temperatureSeries, temperatureSeries.length*2);
+                int newLen = temperatureSeries.length*2;
+                temperatureSeries = Arrays.copyOf(temperatureSeries, newLen);
             }
         }
         return len;
